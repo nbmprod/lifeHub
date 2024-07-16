@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tile.style.backgroundColor = bgColor;
         tile.style.color = getReadableTextColor(bgColor);
     });
+    
+    fetchRandomQuote();
 });
 
 function getRandomColor() {
@@ -22,4 +24,16 @@ function getReadableTextColor(bgColor) {
     const b = parseInt(bgColor.slice(5, 7), 16);
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     return brightness > 125 ? 'black' : 'white';
+}
+
+function fetchRandomQuote() {
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            const quoteElement = document.getElementById('quote');
+            quoteElement.textContent = `"${data.content}" - ${data.author}`;
+        })
+        .catch(error => {
+            console.error('Error fetching quote:', error);
+        });
 }

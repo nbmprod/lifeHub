@@ -5,10 +5,11 @@ body {
     font-family: "DM Sans", sans-serif;
     font-weight: 600;
     background-color: #f4f4f4;
+    display: block;
 }
 
 .container {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -16,6 +17,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    width: 800px;
 }
 
 .header__container {
@@ -35,7 +37,6 @@ body {
 }
 
 .quote__container {
-    
     padding: 0 20px;
     text-align: center;
 }
@@ -84,6 +85,10 @@ body {
 }
 
 @media (max-width: 600px) {
+    
+    .container{
+        width: auto;
+    }
     .tile__container {
         padding: 10px;
     }
